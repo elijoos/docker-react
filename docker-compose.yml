@@ -1,0 +1,25 @@
+version: '3'
+
+#containers
+services:
+  web:
+    #dockerfile we will use to create container
+    build: 
+      #where we want files and folders pulled from
+      context: . #current directory
+      #location of dockerfile
+      dockerfile: Dockerfile.dev
+    ports: 
+      - "3000:3000"
+    volumes:
+      - /app/node_modules #do not map a folder to this
+      - .:/app #current working directory: map outside current folder to the out folder inside container
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    #override starting command when tests is created (rather than npm run start)
+    command: ["npm", "run", "test"]
