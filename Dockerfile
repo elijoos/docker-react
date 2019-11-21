@@ -4,6 +4,7 @@ WORKDIR '/app'
 COPY package.json .
 RUN npm install
 COPY . .
+
 CMD run npm build
 #Don't need volumes because this won't change ^ because this 
 #   is a production environment and we aren't changing our code
