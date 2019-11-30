@@ -1,3 +1,5 @@
+language: generic
+
 #hey travis we need super user level permissions in order to execute this build
 sudo: required
 #hey travis we need to download docker to have a copy of it
