@@ -13,4 +13,4 @@ services:
 
 #contain all commands need to be ran to execute tests. If each test != 0, then failed
 script:
-- docker run -e CI=true elijoos/docker-react npm run test
+- docker run elijoos/docker-react npm run test -- --coverage
