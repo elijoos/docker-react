@@ -14,3 +14,18 @@ before_install:
 #contain all commands need to be ran to execute tests. If each test != 0, then failed
 script:
   - docker run -e CI=true elijoos/docker-react npm run test
+
+#lesson 96. All about deploying--Tell travis CI -> AWS
+deploy:
+provider: elasticbeanstalk
+region: "us-east-2"
+app: "docker-react"
+env: "DockerReact-env"
+bucket_name: "elasticbeanstalk-us-east-2-243086078473"
+bucket_path: "docker-react"
+#only deploy app once master branch gets new code
+on:
+  branch: master
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key:
+  secure: "$AWS_SECRET_KEY"
