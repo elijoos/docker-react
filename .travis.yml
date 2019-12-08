@@ -17,15 +17,15 @@ script:
 
 #lesson 96. All about deploying--Tell travis CI -> AWS
 deploy:
-provider: elasticbeanstalk
-region: "us-east-2"
-app: "docker-react"
-env: "DockerReact-env"
-bucket_name: "elasticbeanstalk-us-east-2-243086078473"
-bucket_path: "docker-react"
-#only deploy app once master branch gets new code
-on:
-  branch: master
-access_key_id: $AWS_ACCESS_KEY
-secret_access_key:
-  secure: "$AWS_SECRET_KEY"
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-243086078473"
+  bucket_path: "docker-react"
+  #only deploy app once master branch gets new code
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
